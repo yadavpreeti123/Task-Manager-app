@@ -1,0 +1,166 @@
+/* ===== BASE (MOBILE FIRST) ===== */
+
+.app {
+  text-align: center;
+  padding: 15px;
+  background-color: #f5f5f5;
+  color: #222;
+  min-height: 100vh;
+  transition: all 0.3s ease;
+}
+
+.dark {
+  background-color: #121212;
+  color: white;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+/* Input */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+/* Task list */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* ===== TASK ITEM (FIXED) ===== */
+
+.task-item {
+  background: white;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  transition: all 0.3s ease;
+
+  /* Drag */
+  cursor: grab;
+
+  /* Animation default */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.task-item:active {
+  cursor: grabbing;
+}
+
+.dark .task-item {
+  background: #1e1e1e;
+}
+
+/* Text */
+.task-text {
+  cursor: pointer;
+}
+
+/* Completed */
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* Delete button */
+.task-item button {
+  margin-top: 8px;
+  background-color: red;
+}
+
+/* ===== ANIMATIONS ===== */
+
+.task-item.show {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.task-item.removing {
+  animation: slideOut 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+/* ===== TABLET (≥ 600px) ===== */
+
+@media (min-width: 600px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  input {
+    width: 70%;
+  }
+
+  button {
+    width: auto;
+  }
+
+  .task-item {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .task-item button {
+    margin-top: 0;
+    margin-left: 10px;
+  }
+}
+
+/* ===== DESKTOP (≥ 900px) ===== */
+
+@media (min-width: 900px) {
+  .app {
+    max-width: 600px;
+    margin: auto;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+}
