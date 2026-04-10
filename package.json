@@ -1,39 +1,65 @@
 {
-  "name": "task-manager",
-  "version": "0.1.0",
-  "private": true,
+  "name": "postcss-import",
+  "version": "15.1.0",
+  "description": "PostCSS plugin to import CSS files",
+  "keywords": [
+    "css",
+    "postcss",
+    "postcss-plugin",
+    "import",
+    "node modules",
+    "npm"
+  ],
+  "author": "Maxime Thirouin",
+  "license": "MIT",
+  "repository": "https://github.com/postcss/postcss-import.git",
+  "files": [
+    "index.js",
+    "lib"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "dependencies": {
-    "@testing-library/dom": "^10.4.1",
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.2",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "postcss-value-parser": "^4.0.0",
+    "read-cache": "^1.0.0",
+    "resolve": "^1.1.7"
+  },
+  "devDependencies": {
+    "ava": "^5.0.0",
+    "eslint": "^8.2.0",
+    "eslint-config-problems": "^7.0.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "postcss": "^8.0.0",
+    "postcss-scss": "^4.0.0",
+    "prettier": "~2.8.0",
+    "sugarss": "^4.0.0"
+  },
+  "peerDependencies": {
+    "postcss": "^8.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "ci": "eslint . && ava",
+    "lint": "eslint . --fix",
+    "pretest": "npm run lint",
+    "test": "ava"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+    "extends": "eslint-config-problems",
+    "env": {
+      "node": true
+    },
+    "plugins": [
+      "prettier"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "semi": false,
+          "arrowParens": "avoid"
+        }
+      ]
+    }
   }
 }
